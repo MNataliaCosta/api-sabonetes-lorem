@@ -1,6 +1,5 @@
 var ObjectID = require('mongodb').ObjectID;
 
-// lista pokemons
 exports.listar = function (req, res) {
   req.db.collection('resultados').find().toArray(function(err, result) {
     if (err) {
