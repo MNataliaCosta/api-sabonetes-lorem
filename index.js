@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var expressMongoDb = require('express-mongo-db');
 var resultadosController = require('./controllers/resultados.js')
+var coordenadasController = require('./controllers/coordenadas.js')
 
 // inicializa o express
 var app = express();
@@ -25,9 +26,9 @@ app.use(function(req, res, next) {
   next();
 });
 
-// importa controllers
-var resultadosController = require('./controllers/resultados.js');
 
 // cria enpoints para funcoes de controllers
 app.get('/resultados', resultadosController.listar);
 app.post('/resultados', resultadosController.procurar);
+app.get('/coordenadas', coordenadasController.listar);
+app.post('/coordenadas', coordenadasController.criar);
